@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SerializableDictionaryExample : MonoBehaviour {
+public class SerializableReferenceDictionaryExample : MonoBehaviour {
 	// The dictionaries can be accessed throught a property
 	[SerializeField]
 	StringStringDictionary m_stringStringDictionary = null;
@@ -14,11 +13,15 @@ public class SerializableDictionaryExample : MonoBehaviour {
 
 	public ObjectColorDictionary m_objectColorDictionary;
 	public StringColorArrayDictionary m_stringColorArrayDictionary;
-	#if NET_4_6 || NET_STANDARD_2_0
+#if NET_4_6 || NET_STANDARD_2_0
 	public StringHashSet m_stringHashSet;
-	#endif
+#endif
 
-	void Reset ()
+    public QuaternionMyClassDictionary quaternionMyClassDictionary;
+
+    public StringMyClassDictionary stringMyClassDictionary;
+
+    void Reset ()
 	{
 		// access by property
 		StringStringDictionary = new Dictionary<string, string>() { {"first key", "value A"}, {"second key", "value B"}, {"third key", "value C"} };

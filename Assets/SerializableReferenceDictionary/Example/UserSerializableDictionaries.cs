@@ -16,8 +16,15 @@ public class ColorArrayStorage : SerializableDictionary.Storage<Color[]> {}
 public class StringColorArrayDictionary : SerializableDictionary<string, Color[], ColorArrayStorage> {}
 
 [Serializable]
+public class StringMyClassDictionary : SerializableDictionary<string, MyClass> { }
+
+
+[Serializable]
 public class MyClass
 {
+    private static int Ctr = 0;
+    public static int GetNewClassID() { return Ctr++; }
+
     public int i;
     public string str;
 }
