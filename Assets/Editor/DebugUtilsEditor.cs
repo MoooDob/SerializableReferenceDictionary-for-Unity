@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Copyright 2020 Marc Rüdel. All Rights Reserved.
+// based on previous work of (https://github.com/azixMcAze/Unity-SerializableDictionary)
+
+
 using UnityEditor;
 using System.Text;
+using SerializableReferenceDictionary;
 
 public static class DebugUtilsEditor
 {
@@ -14,7 +16,7 @@ public static class DebugUtilsEditor
 		do
 		{
 			sb.AppendLine(iterator.propertyPath + " (" + iterator.type + " " + iterator.propertyType + ") = "
-				+ SerializableDictionaryPropertyDrawer.GetPropertyValue(iterator)
+				+ SerializableReferenceDictionaryPropertyDrawer.GetPropertyValue(iterator)
 				#if UNITY_5_6_OR_NEWER
 				+ (iterator.isArray ? " (" + iterator.arrayElementType + ")" : "")
 				#endif

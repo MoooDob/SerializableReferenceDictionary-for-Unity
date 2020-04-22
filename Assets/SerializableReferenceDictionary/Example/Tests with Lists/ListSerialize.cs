@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
 [System.Serializable]
-public class CoolClass { public int id; }
+public class CoolClass { public string name = "default";  public int id; }
 
 
 [ExecuteInEditMode]
@@ -19,6 +20,7 @@ public class ListSerialize : MonoBehaviour
     [SerializeField]
     public List<CoolClass> objList;
 
+    [NonSerialized]
     public bool setNewIdOnFirstItem = false;
 
     void Start()
@@ -32,7 +34,7 @@ public class ListSerialize : MonoBehaviour
         }
 
         if (objList == null)
-            objList = new List<CoolClass>() { anObject, anObject, anObject };
+            objList = new List<CoolClass>() { anObject, anObject, null, anObject };
 
         Debug.Log("initial ids:");
         PrintNames();
@@ -48,7 +50,7 @@ public class ListSerialize : MonoBehaviour
                 Debug.Log("before new id:");
                 PrintNames();
 
-                (objList[0] as CoolClass).id = (int)Random.Range(0, 1000000);
+                (objList[0] as CoolClass).id = (int)UnityEngine.Random.Range(0, 1000000);
 
                 Debug.Log("after new id:");
                 PrintNames();
